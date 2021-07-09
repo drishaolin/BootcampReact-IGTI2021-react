@@ -1,0 +1,8 @@
+(x) transformar arquivo investments.json em variáveis em memória, que deverão ser 
+    lidas pelo componente React;
+() criar componentes para renderizar os dados dos 7 fundos em uma lista
+() calcular, com base nos dados divulgados:
+        () o percentual de rendimento/prejuízo total (entre janeiro e dezembro)
+        () o percentual de rendimento/prejuízo a cada mês
+
+() estilizar visual da página
