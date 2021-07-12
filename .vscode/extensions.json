@@ -10,7 +10,6 @@
     "aeschli.vscode-css-formatter",
     "johnpapa.vscode-peacock",
     "ritwickdey.liveserver",
-    "paulmolluzzo.convert-css-in-js",
-    "irongeek.vscode-env"
+    "paulmolluzzo.convert-css-in-js"
   ]
 }
