@@ -1,16 +1,10 @@
-import Header from "./components/Header"
-import Main from "./components/Main"
-
+import InvestmentsPage from "./pages/InvestmentsPage"
 export default function App() {
   
 
   return (
     <div>
-      <Header>Projeto React Investments</Header>
-      
-      <Main>O conteúdo fica aqui</Main>
-      
-      
+     <InvestmentsPage/>
     </div>
   );
 }
