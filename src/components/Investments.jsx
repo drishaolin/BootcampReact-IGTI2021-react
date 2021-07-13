@@ -6,7 +6,7 @@ export default function Investments({ children: investmentList }) {
 
     const {description} = investmentList;
   return (
-    <div className="border-2 m-5">
+    <div className="font-bold text-center">
       <h1>{description}</h1>
           
     </div>

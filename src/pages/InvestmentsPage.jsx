@@ -23,7 +23,7 @@ export default function InvestmentsPage() {
          let filteredReports = reports.filter(rep => rep.investmentId === inv.id).sort((a, b)=> a.month - b.month);
          
          return (
-             <div key={inv.id}>
+             <div key={inv.id} className="border-2 m-5">
           <Investments>{inv}</Investments>
           {filteredReports.map(fRep => <Investment key={fRep.id}>{fRep}</Investment>)}
           
