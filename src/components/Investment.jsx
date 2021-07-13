@@ -6,7 +6,7 @@ export default function Investment({children: invReport}) {
     return (
     <div>
       <ul>
-        <li>{`${month}/${year} - R$ ${value}`}</li>
+        <li>{`${month}/${year} - R$ ${value.toFixed(2)}`}</li>
       </ul>
     </div>
   );

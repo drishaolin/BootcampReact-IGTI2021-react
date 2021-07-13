@@ -20,12 +20,13 @@ export default function InvestmentsPage() {
       <Main>   
           
       {investments.map((inv) => {
-         let filteredReports = reports.filter(rep => rep.investmentId === inv.id);
-         console.log(filteredReports);
+         let filteredReports = reports.filter(rep => rep.investmentId === inv.id).sort((a, b)=> a.month - b.month);
+         
          return (
              <div key={inv.id}>
           <Investments>{inv}</Investments>
-          <Investment>{reports[0]}</Investment>
+          {filteredReports.map(fRep => <Investment key={fRep.id}>{fRep}</Investment>)}
+          
           
          </div>
        );
