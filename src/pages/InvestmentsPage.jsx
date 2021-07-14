@@ -8,9 +8,7 @@ import { investments } from "../data/investments";
 import { reports } from "../data/reports";
 
 export default function InvestmentsPage() {
-  // function rentability (v1, v2) {
-  //   return (v2 - v1) * 100 / v1;
-  // }
+  
 
   return (
     <div>
@@ -18,17 +16,26 @@ export default function InvestmentsPage() {
 
       <Main>
         {investments.map((inv) => {
-          let filteredReports = reports.filter((rep) => rep.investmentId === inv.id).sort((a, b) => a.month - b.month);
-          console.log(filteredReports);
+          const filteredReports = reports
+            .filter((rep) => rep.investmentId === inv.id)
+            .sort((a, b) => a.month - b.month)
+            .map((currentReport, index, reports) => {
+              const percentage = (index === 0 ? 0 : (currentReport.value-reports[index-1].value)*100/reports[index-1].value);
+              return {...currentReport, percentage};
+            });
           
+
+          const earnings = (filteredReports[filteredReports.length-1].value - filteredReports[0].value).toFixed(2);
+          const anualPercentage = (earnings *100 / filteredReports[0].value).toFixed(2);
+         
 
           return (
             <Investments key={inv.id}>
               <div>
                 <h1 className="font-bold text-center">{inv.description}</h1>
-                <h2 className="font-semibold text-center">Rendimento Total: </h2>
+                <h2 className="font-semibold text-center text-sm">Rendimento Total: R$ {earnings} ({anualPercentage}%)</h2>
                 {filteredReports.map((fRep) => (
-                  <Investment key={fRep.id} rentability={0}>
+                  <Investment key={fRep.id}>
                     {fRep}
                   </Investment>
                 ))}
