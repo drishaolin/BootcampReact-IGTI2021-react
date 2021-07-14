@@ -1,4 +1,5 @@
 import React from "react";
+import PercentageFormat from "./PercentageFormat";
 
 export default function Investment({ children: invReport}) {
   const { month, year, value, percentage } = invReport;
@@ -13,7 +14,8 @@ export default function Investment({ children: invReport}) {
       <ul>
         <li className="flex flex-row border my-3 mx-10 ">
           <span className="flex-1">{`${currentMonth}/${year} - R$ ${value.toFixed(2)}`}</span>
-          <span>{`${percentage.toFixed(2)}%`}</span>
+          <PercentageFormat>{percentage}</PercentageFormat>
+         
         </li>
       </ul>
     </div>

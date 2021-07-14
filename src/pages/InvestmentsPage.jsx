@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Investment from "../components/Investment";
 import Investments from "../components/Investments";
 import Main from "../components/Main";
+import PercentageFormat from "../components/PercentageFormat";
 
 import { investments } from "../data/investments";
 import { reports } from "../data/reports";
@@ -26,14 +27,14 @@ export default function InvestmentsPage() {
           
 
           const earnings = (filteredReports[filteredReports.length-1].value - filteredReports[0].value).toFixed(2);
-          const anualPercentage = (earnings *100 / filteredReports[0].value).toFixed(2);
+          const anualPercentage = (earnings *100 / filteredReports[0].value);
          
 
           return (
             <Investments key={inv.id}>
               <div>
                 <h1 className="font-bold text-center">{inv.description}</h1>
-                <h2 className="font-semibold text-center text-sm">Rendimento Total: R$ {earnings} ({anualPercentage}%)</h2>
+                <h2 className="font-semibold text-center text-sm">Rendimento Total: R$ {earnings} (<PercentageFormat>{anualPercentage}</PercentageFormat>)</h2>
                 {filteredReports.map((fRep) => (
                   <Investment key={fRep.id}>
                     {fRep}
